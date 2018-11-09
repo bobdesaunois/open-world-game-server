@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4B02219219581440054128C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B02218219581440054128C /* main.cpp */; };
+		C4B0222B2195822B0054128C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022242195822B0054128C /* main.cpp */; };
+		C4B0222C2195822B0054128C /* ServerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022262195822B0054128C /* ServerComponent.cpp */; };
+		C4B0222D2195822B0054128C /* NetworkingServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022272195822B0054128C /* NetworkingServer.cpp */; };
+		C4B0222E2195822B0054128C /* GameServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022282195822B0054128C /* GameServer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C4B02215219581440054128C /* game-server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "game-server"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4B02218219581440054128C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		C4B0221B219581440054128C /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		C4B0221C219581440054128C /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		C4B0221D219581440054128C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		C4B0221E219581440054128C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		C4B022242195822B0054128C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C4B022252195822B0054128C /* GameServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameServer.hpp; sourceTree = "<group>"; };
+		C4B022262195822B0054128C /* ServerComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServerComponent.cpp; sourceTree = "<group>"; };
+		C4B022272195822B0054128C /* NetworkingServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkingServer.cpp; sourceTree = "<group>"; };
+		C4B022282195822B0054128C /* GameServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameServer.cpp; sourceTree = "<group>"; };
+		C4B022292195822B0054128C /* NetworkingServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetworkingServer.hpp; sourceTree = "<group>"; };
+		C4B0222A2195822B0054128C /* ServerComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ServerComponent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +54,13 @@
 		C4B02217219581440054128C /* game-server */ = {
 			isa = PBXGroup;
 			children = (
-				C4B02218219581440054128C /* main.cpp */,
+				C4B022282195822B0054128C /* GameServer.cpp */,
+				C4B022252195822B0054128C /* GameServer.hpp */,
+				C4B022242195822B0054128C /* main.cpp */,
+				C4B022272195822B0054128C /* NetworkingServer.cpp */,
+				C4B022292195822B0054128C /* NetworkingServer.hpp */,
+				C4B022262195822B0054128C /* ServerComponent.cpp */,
+				C4B0222A2195822B0054128C /* ServerComponent.hpp */,
 				C4B0221A219581440054128C /* Resources */,
 			);
 			path = "game-server";
@@ -58,10 +69,6 @@
 		C4B0221A219581440054128C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C4B0221B219581440054128C /* cute_image.jpg */,
-				C4B0221C219581440054128C /* nice_music.ogg */,
-				C4B0221D219581440054128C /* sansation.ttf */,
-				C4B0221E219581440054128C /* icon.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -121,7 +128,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4B02219219581440054128C /* main.cpp in Sources */,
+				C4B0222E2195822B0054128C /* GameServer.cpp in Sources */,
+				C4B0222C2195822B0054128C /* ServerComponent.cpp in Sources */,
+				C4B0222D2195822B0054128C /* NetworkingServer.cpp in Sources */,
+				C4B0222B2195822B0054128C /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
