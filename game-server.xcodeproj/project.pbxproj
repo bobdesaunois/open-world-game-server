@@ -20,7 +20,6 @@
 /* Begin PBXFileReference section */
 		C42E97962198803A00CCA466 /* PlayerConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerConnection.cpp; sourceTree = "<group>"; };
 		C42E97972198803A00CCA466 /* PlayerConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerConnection.hpp; sourceTree = "<group>"; };
-		C42E979B2198CEF100CCA466 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		C4B02215219581440054128C /* game-server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "game-server"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B022242195822B0054128C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4B022252195822B0054128C /* GameServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameServer.hpp; sourceTree = "<group>"; };
@@ -79,14 +78,6 @@
 			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		C42E979C2198CEF800CCA466 /* Dependency Header */ = {
-			isa = PBXGroup;
-			children = (
-				C42E979B2198CEF100CCA466 /* json.hpp */,
-			);
-			name = "Dependency Header";
-			sourceTree = "<group>";
-		};
 		C4B0220D219581440054128C = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +98,6 @@
 		C4B02217219581440054128C /* game-server */ = {
 			isa = PBXGroup;
 			children = (
-				C42E979C2198CEF800CCA466 /* Dependency Header */,
 				C42E979A21988D2400CCA466 /* Header Files */,
 				C42E979921988D1A00CCA466 /* Source Files */,
 				C4B022242195822B0054128C /* main.cpp */,
