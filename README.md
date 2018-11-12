@@ -1,7 +1,7 @@
 #  Open World Game Server
 
 Open World Game Server for the game I'm building with friends.
-It's built to run on OS X primarily with compatibility for Linux.
+It's built to run on OS X, with compatibility for Linux.
 
 -----------------------------------------------------------------------------
 
