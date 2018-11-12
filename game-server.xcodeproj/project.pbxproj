@@ -90,6 +90,7 @@
 		C4B0220D219581440054128C = {
 			isa = PBXGroup;
 			children = (
+				C4CC5A6F2199955A00C54D2F /* README.md */,
 				C4B02217219581440054128C /* game-server */,
 				C4B02216219581440054128C /* Products */,
 			);
@@ -111,7 +112,6 @@
 				C42E979921988D1A00CCA466 /* Source Files */,
 				C4B022242195822B0054128C /* main.cpp */,
 				C4B0221A219581440054128C /* Resources */,
-				C4CC5A6F2199955A00C54D2F /* README.md */,
 			);
 			path = "game-server";
 			sourceTree = "<group>";
