@@ -10,13 +10,24 @@
 #define NetworkingServer_hpp
 
 #include "ServerComponent.hpp"
+#include "PlayerConnection.cpp"
 #include <SFML/Network.hpp>
+#include <vector>
+#include <string>
 
-namespace RedStarDungeonParty
+#define PORT 1337
+
+namespace OpenWorldGameServer
 {
     
     class NetworkingServer : public ServerComponent
     {
+        
+    private:
+        
+        sf::UdpSocket clientSocket;
+        void listen ();
+        
         
     public:
         

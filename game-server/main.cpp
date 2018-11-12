@@ -13,9 +13,11 @@
 int main (int argc, const char* argv[])
 {
     
-    std::cout << "Booting up Server..." << std::endl;
+    std::cout
+        << "Booting up Server..."
+        << std::endl;
     
-    RedStarDungeonParty::GameServer gameServer;
+    OpenWorldGameServer::GameServer gameServer;
     
     return 0;
     

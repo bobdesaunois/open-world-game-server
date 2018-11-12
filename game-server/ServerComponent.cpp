@@ -8,9 +8,8 @@
 
 #include "ServerComponent.hpp"
 
-
-
-void RedStarDungeonParty::ServerComponent::log (std::string message)
+void
+OpenWorldGameServer::ServerComponent::log (std::string message)
 {
   
     std::cout

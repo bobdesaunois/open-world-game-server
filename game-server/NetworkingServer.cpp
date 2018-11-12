@@ -8,56 +8,60 @@
 
 #include "NetworkingServer.hpp"
 
-RedStarDungeonParty::NetworkingServer::NetworkingServer ()
+OpenWorldGameServer::NetworkingServer::NetworkingServer ()
 {
   
     this->log ("Booting up NetworkingServer...");
     
-    sf::TcpListener listener;
     
-    // bind the listener to a port
-    if (listener.listen(1337) != sf::Socket::Done)
+    sf::Socket::Status status;
+    
+    status = this->clientSocket.bind (PORT);
+    
+    if (status != sf::Socket::Status::Done)
     {
         
-        std::cout
-            << "Could not bind listener to port!"
-            << std::endl;
+        this->log ("An incoming connection could not be established :(");
+        return;
         
     }
     
-    // accept a new connection
-    sf::TcpSocket client;
-    if (listener.accept(client) != sf::Socket::Done)
-    {
-        
-        std::cout
-            << "Could not accept new incoming connection :("
-            << std::endl;
-        
-    }
+    this->log ("Server up and running.");
+    this->log ("Good luck! :)");
     
+    this->listen ();
+        
+}
+
+void
+OpenWorldGameServer::NetworkingServer::listen ()
+{
+    
+    sf::IpAddress sender = "127.0.0.1";
+    unsigned short port = PORT;
     char data[100];
     std::size_t received;
-    sf::UdpSocket socket;
     
-    if (client.receive (data, 100, received) != sf::Socket::Done)
+    if
+    (
+        this->clientSocket.receive
+        (
+            data
+        ,   100
+        ,   received
+        ,   sender
+        ,   port
+        ) != sf::Socket::Done
+    )
     {
         
-        std::cout
-            << "Dat kon ik niet ontavngen :("
-            << std::endl;
+        this->log ("Could not receive message from Client");
         
     }
     
-    std::cout << "Received: " << received << " bytes" << std::endl;
-    std::cout << "I received this: " << (std::string) data << std::endl;
+    std::cout << (std::string) data
+        << std::endl;
     
-    const char* berichtAanRichard = "Bericht aan Richard terug, hoi Richard! Ik mis Ronald :(";
-    if (client.send (berichtAanRichard, 100) != sf::Socket::Done)
-    {
-    
-        std::cout << "Dat kon ik niet sturen :(" << std::endl;
-        
-    }
-
 };
+
+

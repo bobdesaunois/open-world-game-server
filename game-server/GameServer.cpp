@@ -8,7 +8,7 @@
 
 #include "GameServer.hpp"
 
-RedStarDungeonParty::GameServer::GameServer ()
+OpenWorldGameServer::GameServer::GameServer ()
 {
     
     this->log ("Booting up GameServer...");

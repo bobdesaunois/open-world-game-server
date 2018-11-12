@@ -12,7 +12,7 @@
 #include "NetworkingServer.hpp"
 #include "ServerComponent.hpp"
 
-namespace RedStarDungeonParty
+namespace OpenWorldGameServer
 {
     
     class GameServer : public ServerComponent
@@ -20,7 +20,7 @@ namespace RedStarDungeonParty
         
     private:
         
-        RedStarDungeonParty::NetworkingServer *networkingServer;
+        OpenWorldGameServer::NetworkingServer *networkingServer;
         
     public:
         
