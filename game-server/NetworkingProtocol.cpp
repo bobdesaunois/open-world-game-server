@@ -12,9 +12,29 @@ OpenWorldGameServer::PlayerEvent
 OpenWorldGameServer::NetworkingProtocol::parse (std::string data)
 {
     
-    
     std::vector<std::string> dataVector;
-    boost::split (dataVector, data, [] (char c) {return c = ',';});
+    
+    int captureStart = 0;
+    int captureIndex = 0;
+    for (char& c : data)
+    {
+        
+        if (data[captureIndex] == NETWORKING_PROTOCOL_DELIMITER)
+        {
+            
+            dataVector.push_back (data.substr (captureStart, captureIndex - captureStart));
+            
+            captureStart++;
+            captureStart = (captureIndex + 1);
+            
+        }
+        
+        captureIndex++;
+        
+        if (captureIndex == data.length ())
+            dataVector.push_back (data.substr (captureStart, captureIndex));
+        
+    }
     
     PlayerEventType playerEventType = this->playerEventTypeResolver.resolve (dataVector.at (0));
     PlayerEvent     playerEvent     = *new PlayerEvent (playerEventType);

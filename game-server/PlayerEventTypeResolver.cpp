@@ -9,11 +9,14 @@
 #include "PlayerEventTypeResolver.hpp"
 
 std::string
-OpenWorldGameServer::PlayerEventTypeResolver::resolve (PlayerEventType eventType)
+OpenWorldGameServer::PlayerEventTypeResolver::resolve (OpenWorldGameServer::PlayerEventType eventType)
 {
     
     switch (eventType)
     {
+            
+        case HELLO:
+            return "hello";
             
         case UPDATE_POSITION:
             return "updatePosition";
@@ -32,6 +35,9 @@ OpenWorldGameServer::PlayerEventTypeResolver::resolve (PlayerEventType eventType
 OpenWorldGameServer::PlayerEventType
 OpenWorldGameServer::PlayerEventTypeResolver::resolve (std::string eventTypeString)
 {
+    
+    if ((this->resolve (HELLO)).compare (eventTypeString) == 1)
+        return HELLO;
     
     if ((this->resolve (UPDATE_POSITION)).compare (eventTypeString) == 1)
         return UPDATE_POSITION;

@@ -17,9 +17,10 @@ namespace OpenWorldGameServer
     
     enum PlayerEventType
     {
-      
-        UPDATE_POSITION
-    ,   DAMAGE_ENTITY
+     
+        HELLO // hello
+    ,   UPDATE_POSITION // updatePosition
+    ,   DAMAGE_ENTITY // damageEntity
         
     };
     

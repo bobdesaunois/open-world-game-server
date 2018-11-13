@@ -10,12 +10,18 @@
 #define NetworkingServer_hpp
 
 #include "ServerComponent.hpp"
+#include "NetworkingProtocol.hpp"
 #include "PlayerConnection.cpp"
+#include "PlayerEvent.hpp"
+#include "PlayerEventType.hpp"
+#include "PlayerEventTypeResolver.hpp"
+
 #include <SFML/Network.hpp>
 #include <vector>
 #include <string>
 
 #define PORT 1337
+#define MAX_CONNECTIONS 6;
 
 namespace OpenWorldGameServer
 {
@@ -26,6 +32,8 @@ namespace OpenWorldGameServer
     private:
         
         sf::UdpSocket clientSocket;
+        NetworkingProtocol networkingProtocol;
+        
         void listen ();
         
         

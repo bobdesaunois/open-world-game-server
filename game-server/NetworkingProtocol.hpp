@@ -18,6 +18,8 @@
 #include "PlayerEvent.hpp"
 #include "PlayerEventTypeResolver.hpp"
 
+#define NETWORKING_PROTOCOL_DELIMITER ','
+
 namespace OpenWorldGameServer
 {
     

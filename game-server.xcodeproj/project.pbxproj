@@ -15,6 +15,7 @@
 		C4CC5A6821996FD100C54D2F /* NetworkingProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A6621996FD100C54D2F /* NetworkingProtocol.cpp */; };
 		C4CC5A6B21998E7D00C54D2F /* PlayerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */; };
 		C4CC5A7221999B2900C54D2F /* PlayerEventTypeResolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */; };
+		C4CC5A74219B147900C54D2F /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A73219B147800C54D2F /* makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C4CC5A6F2199955A00C54D2F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerEventTypeResolver.cpp; sourceTree = "<group>"; };
 		C4CC5A7121999B2900C54D2F /* PlayerEventTypeResolver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerEventTypeResolver.hpp; sourceTree = "<group>"; };
+		C4CC5A73219B147800C54D2F /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				C42E979921988D1A00CCA466 /* Source Files */,
 				C4B022242195822B0054128C /* main.cpp */,
 				C4B0221A219581440054128C /* Resources */,
+				C4CC5A73219B147800C54D2F /* makefile */,
 			);
 			path = "game-server";
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			files = (
 				C4B0222E2195822B0054128C /* GameServer.cpp in Sources */,
 				C4CC5A6821996FD100C54D2F /* NetworkingProtocol.cpp in Sources */,
+				C4CC5A74219B147900C54D2F /* makefile in Sources */,
 				C4CC5A6B21998E7D00C54D2F /* PlayerEvent.cpp in Sources */,
 				C4B0222C2195822B0054128C /* ServerComponent.cpp in Sources */,
 				C42E97982198803A00CCA466 /* PlayerConnection.cpp in Sources */,
@@ -273,6 +277,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5MXJUGEP9;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -282,6 +287,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5MXJUGEP9;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

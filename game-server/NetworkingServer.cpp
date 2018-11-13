@@ -37,21 +37,15 @@ void
 OpenWorldGameServer::NetworkingServer::listen ()
 {
     
-    sf::IpAddress sender = "127.0.0.1";
-    unsigned short port = PORT;
+    sf::IpAddress sender;
+    unsigned short port;
     char data[100];
     std::size_t received;
     
     if
     (
         this->clientSocket.receive
-        (
-            data
-        ,   100
-        ,   received
-        ,   sender
-        ,   port
-        ) != sf::Socket::Done
+        (data, 100, received, sender, port) != sf::Socket::Done
     )
     {
         
@@ -59,8 +53,20 @@ OpenWorldGameServer::NetworkingServer::listen ()
         
     }
     
-    std::cout << (std::string) data
+    
+    PlayerEvent playerEvent = this->networkingProtocol.parse ((std::string) data);
+    
+    if (playerEvent.getType() == PlayerEventType::HELLO)
+    {
+        
+        this->log ("A new player has connected :)");
+        this->log ("Details:");
+        std::cout
+        << "ip: "       << playerEvent.getValue (2)
+        << "username: " << playerEvent.getValue (3)
         << std::endl;
+        
+    }
     
 };
 

@@ -10,6 +10,7 @@
 #define PlayerEvent_hpp
 
 #include "PlayerEventType.hpp"
+#include <vector>
 
 namespace OpenWorldGameServer
 {
@@ -20,11 +21,13 @@ namespace OpenWorldGameServer
     private:
         
         PlayerEventType type;
-        
+        std::vector<std::string> values;
         
     public:
         
         PlayerEvent (PlayerEventType type);
+        std::string getValue (int index);
+        PlayerEventType getType ();
         
     };
     

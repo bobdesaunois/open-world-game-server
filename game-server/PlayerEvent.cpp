@@ -14,3 +14,19 @@ OpenWorldGameServer::PlayerEvent::PlayerEvent (OpenWorldGameServer::PlayerEventT
     this->type = type;
     
 }
+
+std::string
+OpenWorldGameServer::PlayerEvent::getValue (int index)
+{
+    
+    return this->values.at (index);
+    
+};
+
+OpenWorldGameServer::PlayerEventType
+OpenWorldGameServer::PlayerEvent::getType ()
+{
+    
+    return this->type;
+    
+};
