@@ -1,5 +1,5 @@
 //
-//  ClientConnection.hpp
+//  PlayerConnection.hpp
 //  game-server
 //
 //  Created by Bob Desaunois on 11/11/2018.
@@ -33,4 +33,4 @@ namespace OpenWorldGameServer
     
 }
 
-#endif /* ClientConnection_hpp */
+#endif /* PlayerConnection_hpp */

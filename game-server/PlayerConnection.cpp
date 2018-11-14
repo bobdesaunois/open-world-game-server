@@ -1,5 +1,5 @@
 //
-//  ClientConnection.cpp
+//  PlayerConnection.cpp
 //  game-server
 //
 //  Created by Bob Desaunois on 11/11/2018.
