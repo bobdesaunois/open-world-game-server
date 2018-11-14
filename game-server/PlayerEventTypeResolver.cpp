@@ -9,20 +9,21 @@
 #include "PlayerEventTypeResolver.hpp"
 
 std::string
-OpenWorldGameServer::PlayerEventTypeResolver::resolve (OpenWorldGameServer::PlayerEventType eventType)
+OpenWorldGameServer::PlayerEventTypeResolver::resolve
+    (PlayerEventType eventType)
 {
     
     switch (eventType)
     {
             
         case HELLO:
-            return "hello";
+            return (std::string ) "hello";
             
         case UPDATE_POSITION:
-            return "updatePosition";
+            return (std::string) "updatePosition";
             
         case DAMAGE_ENTITY:
-            return "damageEntity";
+            return (std::string) "damageEntity";
         
         default:
             this->log ("UNRECOGNIZED EVENT TYPE!?");
@@ -33,19 +34,21 @@ OpenWorldGameServer::PlayerEventTypeResolver::resolve (OpenWorldGameServer::Play
 };
 
 OpenWorldGameServer::PlayerEventType
-OpenWorldGameServer::PlayerEventTypeResolver::resolve (std::string eventTypeString)
+OpenWorldGameServer::PlayerEventTypeResolver::resolve
+    (std::string eventTypeString)
 {
     
-    if ((this->resolve (HELLO)).compare (eventTypeString) == 1)
+    if ((this->resolve (HELLO)).compare (eventTypeString) == 0)
         return HELLO;
     
-    if ((this->resolve (UPDATE_POSITION)).compare (eventTypeString) == 1)
+    if ((this->resolve (UPDATE_POSITION)).compare (eventTypeString) == 0)
         return UPDATE_POSITION;
     
-    if ((this->resolve (DAMAGE_ENTITY)).compare (eventTypeString) == 1)
+    if ((this->resolve (DAMAGE_ENTITY)).compare (eventTypeString) == 0)
         return DAMAGE_ENTITY;
     
-    this->log ("UNRECOGNIZED EVENT TYPE!?");
+    this->log ("ERROR UNRECOGNIZED EVENT TYPE in PlayerEventTypeResolver::resolve");
+    
     exit (0);
     
 };

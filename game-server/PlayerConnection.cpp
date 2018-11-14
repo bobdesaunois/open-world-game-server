@@ -7,3 +7,13 @@
 //
 
 #include "PlayerConnection.hpp"
+
+OpenWorldGameServer::PlayerConnection::PlayerConnection
+    (std::string hostname, std::string username)
+        : position (0, 0)
+{
+    
+    this->hostname = hostname;
+    this->username = username;
+
+};

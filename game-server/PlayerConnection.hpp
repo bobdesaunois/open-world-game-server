@@ -9,8 +9,9 @@
 #ifndef ClientConnection_hpp
 #define ClientConnection_hpp
 
-//#include <SFML/Network.hpp>
 #include <string>
+#include "PlayerPosition.hpp"
+
 
 namespace OpenWorldGameServer
 {
@@ -20,10 +21,13 @@ namespace OpenWorldGameServer
         
     private:
         
-    public:
-        
+        PlayerPosition position;
         std::string hostname;
         std::string username;
+        
+    public:
+        
+        PlayerConnection (std::string hostname, std::string username);
         
     };
     

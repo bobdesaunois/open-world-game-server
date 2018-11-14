@@ -10,8 +10,8 @@
 #define NetworkingServer_hpp
 
 #include "ServerComponent.hpp"
+#include "PlayerConnection.hpp"
 #include "NetworkingProtocol.hpp"
-#include "PlayerConnection.cpp"
 #include "PlayerEvent.hpp"
 #include "PlayerEventType.hpp"
 #include "PlayerEventTypeResolver.hpp"
@@ -21,7 +21,9 @@
 #include <string>
 
 #define PORT 1337
-#define MAX_CONNECTIONS 6;
+#define MAX_CONNECTIONS 6
+#define PLAYER_SPAWN_POSITION_X = 0
+#define PLAYER_SPAWN_POSITION_Y = 0
 
 namespace OpenWorldGameServer
 {
@@ -31,15 +33,21 @@ namespace OpenWorldGameServer
         
     private:
         
-        sf::UdpSocket clientSocket;
+        int running = 0;
+        sf::UdpSocket      clientSocket;
         NetworkingProtocol networkingProtocol;
         
+        std::vector<PlayerConnection> playerConnectionPool;
+       
         void listen ();
-        
-        
+        void handleNewConnection (PlayerEvent helloEvent);
+        void logNewConnection (PlayerEvent helloEvent);
+        void handleNewEvent (PlayerEvent playerEvent);
+    
     public:
         
         NetworkingServer ();
+        std::vector<PlayerConnection>* getPlayerConnectionPool ();
         
     };
     

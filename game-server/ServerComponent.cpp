@@ -9,7 +9,8 @@
 #include "ServerComponent.hpp"
 
 void
-OpenWorldGameServer::ServerComponent::log (std::string message)
+OpenWorldGameServer::ServerComponent::log
+    (std::string message)
 {
   
     std::cout

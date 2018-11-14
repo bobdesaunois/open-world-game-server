@@ -25,7 +25,7 @@ namespace OpenWorldGameServer
         
     public:
         
-        PlayerEvent (PlayerEventType type);
+        PlayerEvent (PlayerEventType type, std::vector<std::string> values);
         std::string getValue (int index);
         PlayerEventType getType ();
         

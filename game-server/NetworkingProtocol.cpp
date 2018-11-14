@@ -9,7 +9,8 @@
 #include "NetworkingProtocol.hpp"
 
 OpenWorldGameServer::PlayerEvent
-OpenWorldGameServer::NetworkingProtocol::parse (std::string data)
+OpenWorldGameServer::NetworkingProtocol::parse
+    (std::string data)
 {
     
     std::vector<std::string> dataVector;
@@ -37,7 +38,7 @@ OpenWorldGameServer::NetworkingProtocol::parse (std::string data)
     }
     
     PlayerEventType playerEventType = this->playerEventTypeResolver.resolve (dataVector.at (0));
-    PlayerEvent     playerEvent     = *new PlayerEvent (playerEventType);
+    PlayerEvent     playerEvent     = *new PlayerEvent (playerEventType, dataVector);
     
     return playerEvent;
     

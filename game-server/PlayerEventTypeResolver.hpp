@@ -25,7 +25,7 @@ namespace OpenWorldGameServer
     public:
         
         std::string     resolve (PlayerEventType eventType);
-        PlayerEventType resolve (std::string);
+        PlayerEventType resolve (std::string eventTypeString);
         
     };
     

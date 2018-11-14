@@ -8,13 +8,14 @@
 
 #include "NetworkingServer.hpp"
 
-OpenWorldGameServer::NetworkingServer::NetworkingServer ()
+OpenWorldGameServer::NetworkingServer::NetworkingServer
+    ()
 {
   
     this->log ("Booting up NetworkingServer...");
     
-    
     sf::Socket::Status status;
+    this->playerConnectionPool = *new std::vector<PlayerConnection>;
     
     status = this->clientSocket.bind (PORT);
     
@@ -26,26 +27,38 @@ OpenWorldGameServer::NetworkingServer::NetworkingServer ()
         
     }
     
+    this->running = 1;
     this->log ("Server up and running.");
     this->log ("Good luck! :)");
     
-    this->listen ();
+    while (this->running)
+        this->listen ();
         
 }
 
-void
-OpenWorldGameServer::NetworkingServer::listen ()
+std::vector<OpenWorldGameServer::PlayerConnection>*
+OpenWorldGameServer::NetworkingServer::getPlayerConnectionPool
+    ()
 {
     
-    sf::IpAddress sender;
+    return &playerConnectionPool;
+    
+};
+
+void
+OpenWorldGameServer::NetworkingServer::listen
+    ()
+{
+    
+    sf::IpAddress  sender;
     unsigned short port;
-    char data[100];
-    std::size_t received;
+    char           data[100];
+    std::size_t    received;
     
     if
     (
         this->clientSocket.receive
-        (data, 100, received, sender, port) != sf::Socket::Done
+            (data, 100, received, sender, port) != sf::Socket::Done
     )
     {
         
@@ -59,15 +72,51 @@ OpenWorldGameServer::NetworkingServer::listen ()
     if (playerEvent.getType() == PlayerEventType::HELLO)
     {
         
-        this->log ("A new player has connected :)");
-        this->log ("Details:");
-        std::cout
-        << "ip: "       << playerEvent.getValue (2)
-        << "username: " << playerEvent.getValue (3)
-        << std::endl;
+        
+        this->logNewConnection (playerEvent);
+        this->handleNewConnection (playerEvent);
+        
+    }
+    else
+    {
+        
+        this->handleNewEvent (playerEvent);
         
     }
     
 };
 
+void
+OpenWorldGameServer::NetworkingServer::logNewConnection
+    (PlayerEvent helloEvent)
+{
+    
+    this->log ("A new player has connected :)");
+    this->log ("Details:");
+    std::cout
+    << "hostname: " << helloEvent.getValue (2) << std::endl
+    << "username: " << helloEvent.getValue (3) << std::endl;
+    
+}
 
+void
+OpenWorldGameServer::NetworkingServer::handleNewConnection
+    (PlayerEvent helloEvent)
+{
+    
+    std::string hostname  = helloEvent.getValue (2);
+    std::string username  = helloEvent.getValue (3);
+    
+    this->getPlayerConnectionPool ()
+        ->push_back (*new PlayerConnection (hostname, username));
+    
+};
+
+void
+OpenWorldGameServer::NetworkingServer::handleNewEvent
+    (PlayerEvent playerEvent)
+{
+    
+    // implement me !
+    
+}

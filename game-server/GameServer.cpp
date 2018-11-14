@@ -8,7 +8,8 @@
 
 #include "GameServer.hpp"
 
-OpenWorldGameServer::GameServer::GameServer ()
+OpenWorldGameServer::GameServer::GameServer
+    ()
 {
     
     this->log ("Booting up GameServer...");

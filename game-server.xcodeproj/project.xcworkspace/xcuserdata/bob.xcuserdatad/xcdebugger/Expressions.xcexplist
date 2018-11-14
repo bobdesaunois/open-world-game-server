@@ -9,10 +9,15 @@
                value = "data.substr (captureStart, captureIndex)">
             </PersistentString>
             <PersistentString
-               value = "data[captureStart]">
-            </PersistentString>
-            <PersistentString
                value = "data[captureIndex]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OpenWorldGameServer::PlayerEventTypeResolver::resolve(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):PlayerEventTypeResolver.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "eventTypeString.length ()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

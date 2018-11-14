@@ -8,15 +8,18 @@
 
 #include "PlayerEvent.hpp"
 
-OpenWorldGameServer::PlayerEvent::PlayerEvent (OpenWorldGameServer::PlayerEventType type)
+OpenWorldGameServer::PlayerEvent::PlayerEvent
+    (PlayerEventType type, std::vector<std::string> values)
 {
     
-    this->type = type;
+    this->type   = type;
+    this->values = values;
     
 }
 
 std::string
-OpenWorldGameServer::PlayerEvent::getValue (int index)
+OpenWorldGameServer::PlayerEvent::getValue
+    (int index)
 {
     
     return this->values.at (index);
@@ -24,7 +27,8 @@ OpenWorldGameServer::PlayerEvent::getValue (int index)
 };
 
 OpenWorldGameServer::PlayerEventType
-OpenWorldGameServer::PlayerEvent::getType ()
+OpenWorldGameServer::PlayerEvent::getType
+    ()
 {
     
     return this->type;

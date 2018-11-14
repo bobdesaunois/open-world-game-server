@@ -16,6 +16,7 @@
 		C4CC5A6B21998E7D00C54D2F /* PlayerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */; };
 		C4CC5A7221999B2900C54D2F /* PlayerEventTypeResolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */; };
 		C4CC5A74219B147900C54D2F /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A73219B147800C54D2F /* makefile */; };
+		C4CC5A77219CCB2500C54D2F /* PlayerPosition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A75219CCB2500C54D2F /* PlayerPosition.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerEventTypeResolver.cpp; sourceTree = "<group>"; };
 		C4CC5A7121999B2900C54D2F /* PlayerEventTypeResolver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerEventTypeResolver.hpp; sourceTree = "<group>"; };
 		C4CC5A73219B147800C54D2F /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		C4CC5A75219CCB2500C54D2F /* PlayerPosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerPosition.cpp; sourceTree = "<group>"; };
+		C4CC5A76219CCB2500C54D2F /* PlayerPosition.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerPosition.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +59,12 @@
 			children = (
 				C4B022282195822B0054128C /* GameServer.cpp */,
 				C4B022272195822B0054128C /* NetworkingServer.cpp */,
-				C42E97962198803A00CCA466 /* PlayerConnection.cpp */,
 				C4B022262195822B0054128C /* ServerComponent.cpp */,
 				C4CC5A6621996FD100C54D2F /* NetworkingProtocol.cpp */,
 				C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */,
 				C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */,
+				C42E97962198803A00CCA466 /* PlayerConnection.cpp */,
+				C4CC5A75219CCB2500C54D2F /* PlayerPosition.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -75,6 +79,7 @@
 				C42E97972198803A00CCA466 /* PlayerConnection.hpp */,
 				C4B022292195822B0054128C /* NetworkingServer.hpp */,
 				C4B0222A2195822B0054128C /* ServerComponent.hpp */,
+				C4CC5A76219CCB2500C54D2F /* PlayerPosition.hpp */,
 				C4CC5A7121999B2900C54D2F /* PlayerEventTypeResolver.hpp */,
 			);
 			name = "Header Files";
@@ -180,6 +185,7 @@
 				C4B0222D2195822B0054128C /* NetworkingServer.cpp in Sources */,
 				C4B0222B2195822B0054128C /* main.cpp in Sources */,
 				C4CC5A7221999B2900C54D2F /* PlayerEventTypeResolver.cpp in Sources */,
+				C4CC5A77219CCB2500C54D2F /* PlayerPosition.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,10 +198,12 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_X86_VECTOR_INSTRUCTIONS = avx2;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
@@ -213,6 +221,16 @@
 					"$(SFML_GRAPHICS)",
 					"$(SFML_AUDIO)",
 					"$(SFML_NETWORK)",
+					"-v",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+					"-v",
 				);
 				SFML_AUDIO = "";
 				SFML_BINARY_TYPE = FRAMEWORKS;
@@ -226,6 +244,7 @@
 				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
 				SFML_WINDOW = "";
 				SUPPORTED_PLATFORMS = macosx;
+				WARNING_LDFLAGS = "-v";
 			};
 			name = Debug;
 		};
@@ -235,10 +254,12 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_X86_VECTOR_INSTRUCTIONS = avx2;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
 					"$(inherited)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
@@ -256,6 +277,7 @@
 					"$(SFML_GRAPHICS)",
 					"$(SFML_AUDIO)",
 					"$(SFML_NETWORK)",
+					"-v",
 				);
 				SFML_AUDIO = "";
 				SFML_BINARY_TYPE = FRAMEWORKS;
@@ -269,6 +291,7 @@
 				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
 				SFML_WINDOW = "";
 				SUPPORTED_PLATFORMS = macosx;
+				WARNING_LDFLAGS = "-v";
 			};
 			name = Release;
 		};
@@ -302,7 +325,7 @@
 				C4B02220219581440054128C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C4B02221219581440054128C /* Build configuration list for PBXNativeTarget "game-server" */ = {
 			isa = XCConfigurationList;
@@ -311,7 +334,7 @@
 				C4B02223219581440054128C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
