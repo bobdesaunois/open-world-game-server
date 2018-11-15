@@ -25,7 +25,7 @@ OpenWorldGameServer::NetworkingProtocol::parse
             
             dataVector.push_back (data.substr (captureStart, captureIndex - captureStart));
             
-            captureStart++;
+            captureStart++; // TODO: why is this here lmao
             captureStart = (captureIndex + 1);
             
         }

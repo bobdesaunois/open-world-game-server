@@ -12,7 +12,6 @@
 		C4B0222C2195822B0054128C /* ServerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022262195822B0054128C /* ServerComponent.cpp */; };
 		C4B0222D2195822B0054128C /* NetworkingServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022272195822B0054128C /* NetworkingServer.cpp */; };
 		C4B0222E2195822B0054128C /* GameServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022282195822B0054128C /* GameServer.cpp */; };
-		C4C7C156219CDC5200D6BDAB /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4C7C154219CDC5200D6BDAB /* Event.cpp */; };
 		C4CC5A6821996FD100C54D2F /* NetworkingProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A6621996FD100C54D2F /* NetworkingProtocol.cpp */; };
 		C4CC5A6B21998E7D00C54D2F /* PlayerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */; };
 		C4CC5A7221999B2900C54D2F /* PlayerEventTypeResolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */; };
@@ -31,8 +30,6 @@
 		C4B022282195822B0054128C /* GameServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameServer.cpp; sourceTree = "<group>"; };
 		C4B022292195822B0054128C /* NetworkingServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetworkingServer.hpp; sourceTree = "<group>"; };
 		C4B0222A2195822B0054128C /* ServerComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ServerComponent.hpp; sourceTree = "<group>"; };
-		C4C7C154219CDC5200D6BDAB /* Event.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
-		C4C7C155219CDC5200D6BDAB /* Event.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Event.hpp; sourceTree = "<group>"; };
 		C4CC5A6621996FD100C54D2F /* NetworkingProtocol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkingProtocol.cpp; sourceTree = "<group>"; };
 		C4CC5A6721996FD100C54D2F /* NetworkingProtocol.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NetworkingProtocol.hpp; sourceTree = "<group>"; };
 		C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerEvent.cpp; sourceTree = "<group>"; };
@@ -60,16 +57,14 @@
 		C42E979921988D1A00CCA466 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4B022262195822B0054128C /* ServerComponent.cpp */,
 				C4B022282195822B0054128C /* GameServer.cpp */,
 				C4B022272195822B0054128C /* NetworkingServer.cpp */,
-				C4B022262195822B0054128C /* ServerComponent.cpp */,
 				C4CC5A6621996FD100C54D2F /* NetworkingProtocol.cpp */,
 				C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */,
 				C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */,
 				C42E97962198803A00CCA466 /* PlayerConnection.cpp */,
 				C4CC5A75219CCB2500C54D2F /* PlayerPosition.cpp */,
-				C4C7C154219CDC5200D6BDAB /* Event.cpp */,
-				C4C7C155219CDC5200D6BDAB /* Event.hpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -77,13 +72,13 @@
 		C42E979A21988D2400CCA466 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4B0222A2195822B0054128C /* ServerComponent.hpp */,
 				C4CC5A6D21998EC300C54D2F /* PlayerEventType.hpp */,
 				C4CC5A6A21998E7D00C54D2F /* PlayerEvent.hpp */,
 				C4CC5A6721996FD100C54D2F /* NetworkingProtocol.hpp */,
 				C4B022252195822B0054128C /* GameServer.hpp */,
 				C42E97972198803A00CCA466 /* PlayerConnection.hpp */,
 				C4B022292195822B0054128C /* NetworkingServer.hpp */,
-				C4B0222A2195822B0054128C /* ServerComponent.hpp */,
 				C4CC5A76219CCB2500C54D2F /* PlayerPosition.hpp */,
 				C4CC5A7121999B2900C54D2F /* PlayerEventTypeResolver.hpp */,
 			);
@@ -191,7 +186,6 @@
 				C4B0222B2195822B0054128C /* main.cpp in Sources */,
 				C4CC5A7221999B2900C54D2F /* PlayerEventTypeResolver.cpp in Sources */,
 				C4CC5A77219CCB2500C54D2F /* PlayerPosition.cpp in Sources */,
-				C4C7C156219CDC5200D6BDAB /* Event.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

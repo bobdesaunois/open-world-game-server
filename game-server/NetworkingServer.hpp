@@ -17,6 +17,9 @@
 #include "PlayerEventTypeResolver.hpp"
 
 #include <SFML/Network.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
 #include <vector>
 #include <string>
 
@@ -43,6 +46,7 @@ namespace OpenWorldGameServer
         void handleNewConnection (PlayerEvent helloEvent);
         void logNewConnection (PlayerEvent helloEvent);
         void handleNewEvent (PlayerEvent playerEvent);
+        std::string generatePlayerID ();
     
     public:
         

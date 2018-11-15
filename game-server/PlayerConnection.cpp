@@ -9,10 +9,11 @@
 #include "PlayerConnection.hpp"
 
 OpenWorldGameServer::PlayerConnection::PlayerConnection
-    (std::string hostname, std::string username)
+(std::string playerID, std::string hostname, std::string username)
         : position (0, 0)
 {
-    
+ 
+    this->playerID = playerID;
     this->hostname = hostname;
     this->username = username;
 

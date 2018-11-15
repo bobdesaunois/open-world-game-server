@@ -22,12 +22,13 @@ namespace OpenWorldGameServer
     private:
         
         PlayerPosition position;
+        std::string playerID;
         std::string hostname;
         std::string username;
         
     public:
         
-        PlayerConnection (std::string hostname, std::string username);
+        PlayerConnection (std::string playerID, std::string hostname, std::string username);
         
     };
     

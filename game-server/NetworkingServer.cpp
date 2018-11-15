@@ -80,7 +80,7 @@ OpenWorldGameServer::NetworkingServer::listen
     else
     {
         
-        this->handleNewEvent (playerEvent);
+        // TODO: Implement event handler
         
     }
     
@@ -108,15 +108,18 @@ OpenWorldGameServer::NetworkingServer::handleNewConnection
     std::string username  = helloEvent.getValue (3);
     
     this->getPlayerConnectionPool ()
-        ->push_back (*new PlayerConnection (hostname, username));
+        ->push_back (*new PlayerConnection (this->generatePlayerID (), hostname, username));
     
 };
 
-void
-OpenWorldGameServer::NetworkingServer::handleNewEvent
-    (PlayerEvent playerEvent)
+// It works, okay?
+// Don't ask.
+std::string
+OpenWorldGameServer::NetworkingServer::generatePlayerID
+    ()
 {
     
-    // implement me !
+    boost::uuids::uuid playerUUID = boost::uuids::random_generator ()();
+    return (std::string) boost::uuids::to_string (playerUUID);
     
-}
+};
