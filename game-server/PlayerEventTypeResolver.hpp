@@ -11,16 +11,14 @@
 
 #include <string>
 
-#include "PlayerEventType.hpp"
 #include "ServerComponent.hpp"
+#include "PlayerEventType.hpp"
 
 namespace OpenWorldGameServer
 {
     
     class PlayerEventTypeResolver : public ServerComponent
     {
-        
-    private:
         
     public:
         

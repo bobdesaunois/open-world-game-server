@@ -14,16 +14,16 @@
 #include <vector>
 #include <boost/algorithm/string.hpp>
 
-#include "PlayerEventType.hpp"
-#include "PlayerEvent.hpp"
+#include "ServerComponent.hpp"
 #include "PlayerEventTypeResolver.hpp"
+#include "HelloEvent.hpp"
 
 #define NETWORKING_PROTOCOL_DELIMITER ','
 
 namespace OpenWorldGameServer
 {
     
-    class NetworkingProtocol
+    class NetworkingProtocol : public ServerComponent
     {
       
     private:
@@ -31,6 +31,7 @@ namespace OpenWorldGameServer
         PlayerEventTypeResolver playerEventTypeResolver;
         
     public:
+        
         
         PlayerEvent parse (std::string data);
         

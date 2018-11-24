@@ -11,10 +11,15 @@
 
 #include "ServerComponent.hpp"
 #include "PlayerConnection.hpp"
-#include "NetworkingProtocol.hpp"
 #include "PlayerEvent.hpp"
 #include "PlayerEventType.hpp"
 #include "PlayerEventTypeResolver.hpp"
+#include "NetworkingProtocol.hpp"
+#include "EventHandler.hpp"
+#include "NetworkingServerLogic.hpp"
+
+// Events
+#include "HelloEvent.hpp"
 
 #include <SFML/Network.hpp>
 #include <boost/uuid/uuid.hpp>
@@ -22,6 +27,7 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <vector>
 #include <string>
+#include <thread>
 
 #define PORT 1337
 #define MAX_CONNECTIONS 6
@@ -37,21 +43,26 @@ namespace OpenWorldGameServer
     private:
         
         int running = 0;
-        sf::UdpSocket      clientSocket;
-        NetworkingProtocol networkingProtocol;
+
+        sf::UdpSocket           clientSocket;
+        NetworkingProtocol      networkingProtocol;
+        NetworkingServerLogic   networkingServerLogic;
         
         std::vector<PlayerConnection> playerConnectionPool;
+        std::vector<PlayerEvent>      playerEventBuffer;
        
-        void listen ();
-        void handleNewConnection (PlayerEvent helloEvent);
-        void logNewConnection (PlayerEvent helloEvent);
-        void handleNewEvent (PlayerEvent playerEvent);
+    public:
+    
+        NetworkingServer ();
+        
+        std::vector<PlayerConnection>& getPlayerConnectionPool ();
+        
+        void        listen ();
+        void        handleNewConnection (PlayerEvent helloEvent);
+        void        handleNewEvent      (PlayerEvent playerEvent);
         std::string generatePlayerID ();
     
-    public:
         
-        NetworkingServer ();
-        std::vector<PlayerConnection>* getPlayerConnectionPool ();
         
     };
     

@@ -16,6 +16,7 @@ OpenWorldGameServer::NetworkingServer::NetworkingServer
     
     sf::Socket::Status status;
     this->playerConnectionPool = *new std::vector<PlayerConnection>;
+    this->playerEventBuffer    = *new std::vector<PlayerEvent>;
     
     status = this->clientSocket.bind (PORT);
     
@@ -31,20 +32,35 @@ OpenWorldGameServer::NetworkingServer::NetworkingServer
     this->log ("Server up and running.");
     this->log ("Good luck! :)");
     
+    this->networkingServerLogic = *new NetworkingServerLogic ();
+    std::thread logicThread
+    (
+        &NetworkingServerLogic::loop
+    ,   this->networkingServerLogic
+    );
+    
     while (this->running)
         this->listen ();
         
 }
 
-std::vector<OpenWorldGameServer::PlayerConnection>*
+std::vector<OpenWorldGameServer::PlayerConnection>&
 OpenWorldGameServer::NetworkingServer::getPlayerConnectionPool
     ()
 {
     
-    return &playerConnectionPool;
+    return playerConnectionPool;
     
 };
 
+/*
+ * TODO: Thread player connections and let them handle everything themselves.
+ * Currently this listen function serves as the only point
+ * where the server listens to the client.
+ * So every connected client goes through here.
+ * In the future it would be wise to make connections threaded
+ * and let them concurrently listen for events. :)
+ */
 void
 OpenWorldGameServer::NetworkingServer::listen
     ()
@@ -67,53 +83,14 @@ OpenWorldGameServer::NetworkingServer::listen
     }
     
     
-    PlayerEvent playerEvent = this->networkingProtocol.parse ((std::string) data);
-    
-    if (playerEvent.getType() == PlayerEventType::HELLO)
-    {
-        
-        
-        this->logNewConnection (playerEvent);
-        this->handleNewConnection (playerEvent);
-        
-    }
-    else
-    {
-        
-        // TODO: Implement event handler
-        
-    }
-    
+    auto playerEvent = this->networkingProtocol.parse ((std::string) data);
+
+    // Add event to eventbuffer which will get handled
+    // somewhere in NetworkingServerLogic.cpp
+    this->playerEventBuffer.push_back (playerEvent);
+
 };
 
-void
-OpenWorldGameServer::NetworkingServer::logNewConnection
-    (PlayerEvent helloEvent)
-{
-    
-    this->log ("A new player has connected :)");
-    this->log ("Details:");
-    std::cout
-    << "hostname: " << helloEvent.getValue (2) << std::endl
-    << "username: " << helloEvent.getValue (3) << std::endl;
-    
-}
-
-void
-OpenWorldGameServer::NetworkingServer::handleNewConnection
-    (PlayerEvent helloEvent)
-{
-    
-    std::string hostname  = helloEvent.getValue (2);
-    std::string username  = helloEvent.getValue (3);
-    
-    this->getPlayerConnectionPool ()
-        ->push_back (*new PlayerConnection (this->generatePlayerID (), hostname, username));
-    
-};
-
-// It works, okay?
-// Don't ask.
 std::string
 OpenWorldGameServer::NetworkingServer::generatePlayerID
     ()

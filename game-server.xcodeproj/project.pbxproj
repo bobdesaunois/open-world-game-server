@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C42E97982198803A00CCA466 /* PlayerConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C42E97962198803A00CCA466 /* PlayerConnection.cpp */; };
+		C4317D0D21A96116002388CE /* NetworkingServerLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4317D0B21A96116002388CE /* NetworkingServerLogic.cpp */; };
+		C46D6D6021A6E99C00460E4E /* EventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C46D6D5E21A6E99C00460E4E /* EventHandler.cpp */; };
+		C485CF7721A2E45200E14AAA /* HelloEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C485CF7521A2E45200E14AAA /* HelloEvent.cpp */; };
+		C485CF7A21A2E77000E14AAA /* PlayerEventBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C485CF7821A2E77000E14AAA /* PlayerEventBuilder.cpp */; };
 		C4B0222B2195822B0054128C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022242195822B0054128C /* main.cpp */; };
 		C4B0222C2195822B0054128C /* ServerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022262195822B0054128C /* ServerComponent.cpp */; };
 		C4B0222D2195822B0054128C /* NetworkingServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B022272195822B0054128C /* NetworkingServer.cpp */; };
@@ -22,6 +26,14 @@
 /* Begin PBXFileReference section */
 		C42E97962198803A00CCA466 /* PlayerConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerConnection.cpp; sourceTree = "<group>"; };
 		C42E97972198803A00CCA466 /* PlayerConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerConnection.hpp; sourceTree = "<group>"; };
+		C4317D0B21A96116002388CE /* NetworkingServerLogic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkingServerLogic.cpp; sourceTree = "<group>"; };
+		C4317D0C21A96116002388CE /* NetworkingServerLogic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NetworkingServerLogic.hpp; sourceTree = "<group>"; };
+		C46D6D5E21A6E99C00460E4E /* EventHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EventHandler.cpp; sourceTree = "<group>"; };
+		C46D6D5F21A6E99C00460E4E /* EventHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EventHandler.hpp; sourceTree = "<group>"; };
+		C485CF7521A2E45200E14AAA /* HelloEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelloEvent.cpp; sourceTree = "<group>"; };
+		C485CF7621A2E45200E14AAA /* HelloEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HelloEvent.hpp; sourceTree = "<group>"; };
+		C485CF7821A2E77000E14AAA /* PlayerEventBuilder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerEventBuilder.cpp; sourceTree = "<group>"; };
+		C485CF7921A2E77000E14AAA /* PlayerEventBuilder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerEventBuilder.hpp; sourceTree = "<group>"; };
 		C4B02215219581440054128C /* game-server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "game-server"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B022242195822B0054128C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4B022252195822B0054128C /* GameServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameServer.hpp; sourceTree = "<group>"; };
@@ -57,12 +69,12 @@
 		C42E979921988D1A00CCA466 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				C485CF7321A2E2D200E14AAA /* Events */,
 				C4B022262195822B0054128C /* ServerComponent.cpp */,
 				C4B022282195822B0054128C /* GameServer.cpp */,
 				C4B022272195822B0054128C /* NetworkingServer.cpp */,
+				C4317D0B21A96116002388CE /* NetworkingServerLogic.cpp */,
 				C4CC5A6621996FD100C54D2F /* NetworkingProtocol.cpp */,
-				C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */,
-				C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */,
 				C42E97962198803A00CCA466 /* PlayerConnection.cpp */,
 				C4CC5A75219CCB2500C54D2F /* PlayerPosition.cpp */,
 			);
@@ -72,17 +84,41 @@
 		C42E979A21988D2400CCA466 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				C485CF7421A2E2E800E14AAA /* Events */,
 				C4B0222A2195822B0054128C /* ServerComponent.hpp */,
 				C4CC5A6D21998EC300C54D2F /* PlayerEventType.hpp */,
-				C4CC5A6A21998E7D00C54D2F /* PlayerEvent.hpp */,
 				C4CC5A6721996FD100C54D2F /* NetworkingProtocol.hpp */,
 				C4B022252195822B0054128C /* GameServer.hpp */,
 				C42E97972198803A00CCA466 /* PlayerConnection.hpp */,
 				C4B022292195822B0054128C /* NetworkingServer.hpp */,
+				C4317D0C21A96116002388CE /* NetworkingServerLogic.hpp */,
 				C4CC5A76219CCB2500C54D2F /* PlayerPosition.hpp */,
-				C4CC5A7121999B2900C54D2F /* PlayerEventTypeResolver.hpp */,
 			);
 			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		C485CF7321A2E2D200E14AAA /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC5A7021999B2900C54D2F /* PlayerEventTypeResolver.cpp */,
+				C485CF7821A2E77000E14AAA /* PlayerEventBuilder.cpp */,
+				C4CC5A6921998E7D00C54D2F /* PlayerEvent.cpp */,
+				C485CF7521A2E45200E14AAA /* HelloEvent.cpp */,
+				C46D6D5E21A6E99C00460E4E /* EventHandler.cpp */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		C485CF7421A2E2E800E14AAA /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC5A7121999B2900C54D2F /* PlayerEventTypeResolver.hpp */,
+				C485CF7921A2E77000E14AAA /* PlayerEventBuilder.hpp */,
+				C4CC5A6A21998E7D00C54D2F /* PlayerEvent.hpp */,
+				C485CF7621A2E45200E14AAA /* HelloEvent.hpp */,
+				C46D6D5F21A6E99C00460E4E /* EventHandler.hpp */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 		C4B0220D219581440054128C = {
@@ -176,7 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C485CF7721A2E45200E14AAA /* HelloEvent.cpp in Sources */,
+				C485CF7A21A2E77000E14AAA /* PlayerEventBuilder.cpp in Sources */,
 				C4B0222E2195822B0054128C /* GameServer.cpp in Sources */,
+				C46D6D6021A6E99C00460E4E /* EventHandler.cpp in Sources */,
 				C4CC5A6821996FD100C54D2F /* NetworkingProtocol.cpp in Sources */,
 				C4CC5A74219B147900C54D2F /* makefile in Sources */,
 				C4CC5A6B21998E7D00C54D2F /* PlayerEvent.cpp in Sources */,
@@ -184,6 +223,7 @@
 				C42E97982198803A00CCA466 /* PlayerConnection.cpp in Sources */,
 				C4B0222D2195822B0054128C /* NetworkingServer.cpp in Sources */,
 				C4B0222B2195822B0054128C /* main.cpp in Sources */,
+				C4317D0D21A96116002388CE /* NetworkingServerLogic.cpp in Sources */,
 				C4CC5A7221999B2900C54D2F /* PlayerEventTypeResolver.cpp in Sources */,
 				C4CC5A77219CCB2500C54D2F /* PlayerPosition.cpp in Sources */,
 			);

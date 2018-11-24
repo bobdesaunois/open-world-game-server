@@ -14,7 +14,8 @@ OpenWorldGameServer::ServerComponent::log
 {
   
     std::cout
-        << "[" << typeid (this).name () << "] "
+//        << "[" << typeid (this).name () << "] "
+        << "[Server] "
         << message
         << std::endl;
     

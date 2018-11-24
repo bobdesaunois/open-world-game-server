@@ -8,14 +8,22 @@
 
 #include "PlayerEvent.hpp"
 
-OpenWorldGameServer::PlayerEvent::PlayerEvent
-    (PlayerEventType type, std::vector<std::string> values)
-{
-    
-    this->type   = type;
-    this->values = values;
-    
-}
+//OpenWorldGameServer::PlayerEvent::PlayerEvent
+//    (PlayerEventType type, std::vector<std::string> values)
+//{
+//
+//    this->type   = type;
+//    this->values = values;
+//
+//}
+
+//OpenWorldGameServer::PlayerEvent::PlayerEvent
+//    ()
+//{
+//    
+//    // nothing :D
+//    
+//};
 
 std::string
 OpenWorldGameServer::PlayerEvent::getValue
@@ -32,5 +40,14 @@ OpenWorldGameServer::PlayerEvent::getType
 {
     
     return this->type;
+    
+};
+
+void
+OpenWorldGameServer::PlayerEvent::handle
+    ()
+{
+    
+    // override me owo
     
 };
