@@ -32,7 +32,12 @@ namespace OpenWorldGameServer
         
     public:
         
-        
+        /*
+         * TODO: Parse should return an std::set with the TYPE
+         * and the variables needed for construction
+         * and pass *that* to the event builder later on in
+         * the NetworkingServer.
+         */
         PlayerEvent parse (std::string data);
         
     };

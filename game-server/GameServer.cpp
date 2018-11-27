@@ -14,6 +14,6 @@ OpenWorldGameServer::GameServer::GameServer
     
     this->log ("Booting up GameServer...");
     
-    this->networkingServer = new NetworkingServer ();
+    this->networkingServer = new NetworkingServer;
     
 };

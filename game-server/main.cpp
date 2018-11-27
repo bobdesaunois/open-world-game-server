@@ -13,9 +13,7 @@
 int main (int argc, const char* argv[])
 {
     
-    std::cout
-        << "Booting up Server..."
-        << std::endl;
+    std::cout << "Booting up Server..." << std::endl;
     
     OpenWorldGameServer::GameServer gameServer;
     

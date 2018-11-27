@@ -20,11 +20,11 @@ namespace OpenWorldGameServer
         
     private:
         
-        OpenWorldGameServer::NetworkingServer *networkingServer;
-        
     public:
         
         GameServer ();
+        
+        NetworkingServer* networkingServer;
         
     };
     

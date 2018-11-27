@@ -9,32 +9,11 @@
 #include "PlayerEventBuilder.hpp"
 #include "HelloEvent.hpp"
 
-//OpenWorldGameServer::HelloEvent::HelloEvent
-//    ()
-//{
-//
-//    std::cout << ":)"
-//        << std::endl;
-//
-//};
-
 void
 OpenWorldGameServer::HelloEvent::handle
     ()
 {
 
-    
+    std::cout << "i'm an hello event owo" << std::endl;
 
 };
-
-//void
-//OpenWorldGameServer::HelloEvent::handle
-//    (NetworkingServer networkingServerPtr)
-//{
-//    
-//    networkingServerPtr.logNewConnection (this);
-//    
-//    networkingServerPtr.getPlayerConnectionPool ()
-//        ->push_back (*new PlayerConnection (this->generatePlayerID (), this.hostname, this.username));
-//    
-//};

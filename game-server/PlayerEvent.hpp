@@ -16,6 +16,7 @@
 namespace OpenWorldGameServer
 {
     
+    template<class T>
     class PlayerEvent : public ServerComponent
     {
       
@@ -23,15 +24,16 @@ namespace OpenWorldGameServer
         
         PlayerEventType          type; // TODO: Safely remove this
         std::vector<std::string> values;
+        T                        event;
         
     public:
         
-//        PlayerEvent (PlayerEventType type, std::vector<std::string> values);
-//        PlayerEvent ();
-        virtual ~PlayerEvent () = default;
+        PlayerEvent ();
         
-        virtual std::string     getValue (int index);
-        virtual PlayerEventType getType  ();
+        std::string     getValue (int index);
+        PlayerEventType getType  ();
+        T*              getEvent ();
+        
         void            handle ();
         
     };

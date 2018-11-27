@@ -18,7 +18,7 @@
 namespace OpenWorldGameServer
 {
     
-    class HelloEvent : public PlayerEvent
+    class HelloEvent
     {
         
     private:

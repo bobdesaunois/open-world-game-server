@@ -11,12 +11,12 @@
 OpenWorldGameServer::NetworkingServer::NetworkingServer
     ()
 {
-  
+    
     this->log ("Booting up NetworkingServer...");
     
     sf::Socket::Status status;
     this->playerConnectionPool = *new std::vector<PlayerConnection>;
-    this->playerEventBuffer    = *new std::vector<PlayerEvent>;
+    this->playerEventBuffer    = *new std::vector<std::shared_ptr<PlayerEvent>>;
     
     status = this->clientSocket.bind (PORT);
     
@@ -32,7 +32,9 @@ OpenWorldGameServer::NetworkingServer::NetworkingServer
     this->log ("Server up and running.");
     this->log ("Good luck! :)");
     
-    this->networkingServerLogic = *new NetworkingServerLogic ();
+    this->networkingServerLogic = new NetworkingServerLogic (this);
+    this->networkingServerLogic->setRunning (true);
+    
     std::thread logicThread
     (
         &NetworkingServerLogic::loop
@@ -40,7 +42,7 @@ OpenWorldGameServer::NetworkingServer::NetworkingServer
     );
     
     while (this->running)
-        this->listen ();
+        this->listen (); // TODO: Should I thread this? I don't see why I would 🤔
         
 }
 
@@ -50,6 +52,15 @@ OpenWorldGameServer::NetworkingServer::getPlayerConnectionPool
 {
     
     return playerConnectionPool;
+    
+};
+
+std::vector<std::shared_ptr<OpenWorldGameServer::PlayerEvent>>&
+OpenWorldGameServer::NetworkingServer::getPlayerEventBuffer
+    ()
+{
+  
+    return playerEventBuffer;
     
 };
 
@@ -87,7 +98,7 @@ OpenWorldGameServer::NetworkingServer::listen
 
     // Add event to eventbuffer which will get handled
     // somewhere in NetworkingServerLogic.cpp
-    this->playerEventBuffer.push_back (playerEvent);
+    this->playerEventBuffer.push_back (std::make_shared<PlayerEvent> (playerEvent));
 
 };
 

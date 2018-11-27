@@ -28,6 +28,7 @@
 #include <vector>
 #include <string>
 #include <thread>
+#include <memory>
 
 #define PORT 1337
 #define MAX_CONNECTIONS 6
@@ -36,6 +37,8 @@
 
 namespace OpenWorldGameServer
 {
+    
+    class NetworkingServerLogic;
     
     class NetworkingServer : public ServerComponent
     {
@@ -46,16 +49,17 @@ namespace OpenWorldGameServer
 
         sf::UdpSocket           clientSocket;
         NetworkingProtocol      networkingProtocol;
-        NetworkingServerLogic   networkingServerLogic;
+        NetworkingServerLogic*  networkingServerLogic;
         
-        std::vector<PlayerConnection> playerConnectionPool;
-        std::vector<PlayerEvent>      playerEventBuffer;
+        std::vector<PlayerConnection>                  playerConnectionPool;
+        std::vector<std::shared_ptr<PlayerEvent>>      playerEventBuffer;
        
     public:
-    
+        
         NetworkingServer ();
         
         std::vector<PlayerConnection>& getPlayerConnectionPool ();
+        std::vector<std::shared_ptr<PlayerEvent>>& getPlayerEventBuffer ();
         
         void        listen ();
         void        handleNewConnection (PlayerEvent helloEvent);

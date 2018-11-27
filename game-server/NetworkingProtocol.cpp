@@ -12,7 +12,8 @@
 
 // TODO: this method is pretty ugly, should fix and apply SRP
 OpenWorldGameServer::PlayerEvent
-OpenWorldGameServer::NetworkingProtocol::parse
+OpenWorldGameServer::NetworkingProtocol::
+parse
     (std::string data)
 {
     
@@ -40,7 +41,8 @@ OpenWorldGameServer::NetworkingProtocol::parse
         
     }
     
-    PlayerEventType playerEventType = this->playerEventTypeResolver.resolve (dataVector.at (0));
+    PlayerEventType playerEventType
+        = this->playerEventTypeResolver.resolve (dataVector.at (0));
     
     // TODO: I don't want to maintain new types here at all :(
     // I should probably move this to the PlayerEventBuilder somehow
@@ -53,11 +55,8 @@ OpenWorldGameServer::NetworkingProtocol::parse
             
             auto eventBuilder = *new PlayerEventBuilder<HelloEvent> ();
             return eventBuilder.build ();
-            //            return PlayerEventBuilder::getInstance ()
-            //                .build<HelloEvent> ();
             
         }
-            
             
         default:
             this->log ("PARSER COULD NOT FIGURE OUT TYPE :(");
