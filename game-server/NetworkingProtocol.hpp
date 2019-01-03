@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <utility>
 #include <boost/algorithm/string.hpp>
 
 #include "ServerComponent.hpp"
@@ -33,12 +34,12 @@ namespace OpenWorldGameServer
     public:
         
         /*
-         * TODO: Parse should return an std::set with the TYPE
-         * and the variables needed for construction
+         * TODO: Parse should return an std::pair with the TYPE
+         * and a vector with the variables needed for construction
          * and pass *that* to the event builder later on in
          * the NetworkingServer.
          */
-        PlayerEvent parse (std::string data);
+        std::pair<PlayerEventType, std::vector<std::string>> parse (std::string data);
         
     };
     

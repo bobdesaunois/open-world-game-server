@@ -11,13 +11,14 @@
 
 #include "PlayerEventType.hpp"
 #include "ServerComponent.hpp"
+#include "IPlayerEvent.hpp"
 #include <vector>
 
 namespace OpenWorldGameServer
 {
     
     template<class T>
-    class PlayerEvent : public ServerComponent
+    class PlayerEvent : public IPlayerEvent
     {
       
     private:
@@ -28,13 +29,11 @@ namespace OpenWorldGameServer
         
     public:
         
-        PlayerEvent ();
+        PlayerEvent (std::vector<std::string>);
         
         std::string     getValue (int index);
         PlayerEventType getType  ();
         T*              getEvent ();
-        
-        void            handle ();
         
     };
     

@@ -11,12 +11,14 @@
 
 #include "ServerComponent.hpp"
 #include "PlayerConnection.hpp"
+#include "IPlayerEvent.hpp"
 #include "PlayerEvent.hpp"
 #include "PlayerEventType.hpp"
 #include "PlayerEventTypeResolver.hpp"
 #include "NetworkingProtocol.hpp"
 #include "EventHandler.hpp"
 #include "NetworkingServerLogic.hpp"
+#include "PlayerEventBuilder.hpp"
 
 // Events
 #include "HelloEvent.hpp"
@@ -52,18 +54,18 @@ namespace OpenWorldGameServer
         NetworkingServerLogic*  networkingServerLogic;
         
         std::vector<PlayerConnection>                  playerConnectionPool;
-        std::vector<std::shared_ptr<PlayerEvent>>      playerEventBuffer;
+        std::vector<std::shared_ptr<IPlayerEvent>>      playerEventBuffer;
        
     public:
         
         NetworkingServer ();
         
         std::vector<PlayerConnection>& getPlayerConnectionPool ();
-        std::vector<std::shared_ptr<PlayerEvent>>& getPlayerEventBuffer ();
+        std::vector<std::shared_ptr<IPlayerEvent>>& getPlayerEventBuffer ();
         
         void        listen ();
-        void        handleNewConnection (PlayerEvent helloEvent);
-        void        handleNewEvent      (PlayerEvent playerEvent);
+        void        handleNewConnection (IPlayerEvent helloEvent);
+        void        handleNewEvent      (IPlayerEvent playerEvent);
         std::string generatePlayerID ();
     
         

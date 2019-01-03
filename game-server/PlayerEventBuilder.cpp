@@ -9,12 +9,36 @@
 #include "HelloEvent.hpp"
 #include "PlayerEventBuilder.hpp"
 
-//template <class T>
-//OpenWorldGameServer::PlayerEventBuilder
-//OpenWorldGameServer::PlayerEventBuilder::getInstance
-//    ()
-//{
+OpenWorldGameServer::PlayerEventBuilder::PlayerEventBuilder
+    (std::pair<OpenWorldGameServer::PlayerEventType, std::vector<std::string>> pseudoPlayerEvent)
+{
+    
+    this->pseudoPlayerEvent = pseudoPlayerEvent;
+    
+};
+
+template<class T>
+OpenWorldGameServer::PlayerEvent<T>
+OpenWorldGameServer::PlayerEventBuilder::build
+    ()
+{
+    
+    switch (this->pseudoPlayerEvent.first)
+    {
+      
+        case HELLO:
+            return new PlayerEvent<HelloEvent> (pseudoPlayerEvent.second);
+    
+//        case UPDATE_POSITION:
 //
-//    return *new PlayerEventBuilder<T> ();
-//
-//};
+// 
+//        case DAMAGE_ENTITY:
+            
+            
+        default:
+            std::cout << "Unrecogninzed type at PlayerEventBuilder::build :(" << std::endl;
+            exit (1);
+            
+    };
+    
+};

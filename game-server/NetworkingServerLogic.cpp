@@ -16,6 +16,7 @@ OpenWorldGameServer::NetworkingServerLogic::NetworkingServerLogic
 {
     
     this->networkingServer = networkingServerPtr;
+//    this->eventHandler     = new EventHandler ();
     
 }
 
@@ -24,11 +25,10 @@ OpenWorldGameServer::NetworkingServerLogic::handlePlayerEvents
     ()
 {
     
-    for (std::shared_ptr<PlayerEvent> playerEventPtr : this->networkingServer->getPlayerEventBuffer())
+    for (std::shared_ptr<IPlayerEvent> playerEventPtr : this->networkingServer->getPlayerEventBuffer())
     {
         
-        playerEventPtr.get ()
-            ->handle ();
+        playerEventPtr.get ();
         
     }
     

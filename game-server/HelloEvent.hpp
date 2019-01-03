@@ -12,23 +12,21 @@
 #include <iostream>
 #include "NetworkingServer.hpp"
 #include "PlayerEvent.hpp"
+#include "IEvent.hpp"
 
 //class NetworkingServer;
 
 namespace OpenWorldGameServer
 {
     
-    class HelloEvent
+    class HelloEvent : public IEvent
     {
         
     private:
         
     public:
         
-        HelloEvent ()
-        {
-            
-        };
+        HelloEvent ();
         
         void handle ();
         

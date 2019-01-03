@@ -9,6 +9,15 @@
 #include "PlayerEvent.hpp"
 
 template<class T>
+OpenWorldGameServer::PlayerEvent<T>::PlayerEvent
+    (std::vector<std::string> values)
+{
+    
+    this->event = *new T (values);
+    
+};
+
+template<class T>
 std::string
 OpenWorldGameServer::PlayerEvent<T>::getValue
     (int index)
@@ -35,15 +44,5 @@ OpenWorldGameServer::PlayerEvent<T>::getEvent
 {
     
     return &this->event;
-    
-};
-
-template<class T>
-void
-OpenWorldGameServer::PlayerEvent<T>::handle
-    ()
-{
-    
-    // override me owo
     
 };

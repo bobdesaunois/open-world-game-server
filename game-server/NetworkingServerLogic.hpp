@@ -26,6 +26,7 @@ namespace OpenWorldGameServer{
         
         bool running = false;
         NetworkingServer* networkingServer;
+//        EventHandler eventHandler;
         
     public:
         

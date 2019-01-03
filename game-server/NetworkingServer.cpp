@@ -16,7 +16,7 @@ OpenWorldGameServer::NetworkingServer::NetworkingServer
     
     sf::Socket::Status status;
     this->playerConnectionPool = *new std::vector<PlayerConnection>;
-    this->playerEventBuffer    = *new std::vector<std::shared_ptr<PlayerEvent>>;
+    this->playerEventBuffer    = *new std::vector<std::shared_ptr<IPlayerEvent>>;
     
     status = this->clientSocket.bind (PORT);
     
@@ -55,7 +55,7 @@ OpenWorldGameServer::NetworkingServer::getPlayerConnectionPool
     
 };
 
-std::vector<std::shared_ptr<OpenWorldGameServer::PlayerEvent>>&
+std::vector<std::shared_ptr<OpenWorldGameServer::IPlayerEvent>>&
 OpenWorldGameServer::NetworkingServer::getPlayerEventBuffer
     ()
 {
@@ -94,11 +94,19 @@ OpenWorldGameServer::NetworkingServer::listen
     }
     
     
-    auto playerEvent = this->networkingProtocol.parse ((std::string) data);
+    std::pair<PlayerEventType, std::vector<std::string>> pseudoPlayerEvent = this->networkingProtocol.parse ((std::string) data);
 
+    auto playerEventBuilder = *new PlayerEventBuilder (pseudoPlayerEvent);
+    
     // Add event to eventbuffer which will get handled
     // somewhere in NetworkingServerLogic.cpp
-    this->playerEventBuffer.push_back (std::make_shared<PlayerEvent> (playerEvent));
+    this->playerEventBuffer.push_back
+    (
+        std::make_shared<PlayerEvent>
+        (
+            playerEventBuilder.build ()
+        )
+    );
 
 };
 

@@ -9,6 +9,8 @@
 #include "PlayerEventBuilder.hpp"
 #include "HelloEvent.hpp"
 
+
+
 void
 OpenWorldGameServer::HelloEvent::handle
     ()

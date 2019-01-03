@@ -28,6 +28,7 @@
 		C42E97972198803A00CCA466 /* PlayerConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerConnection.hpp; sourceTree = "<group>"; };
 		C4317D0B21A96116002388CE /* NetworkingServerLogic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkingServerLogic.cpp; sourceTree = "<group>"; };
 		C4317D0C21A96116002388CE /* NetworkingServerLogic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NetworkingServerLogic.hpp; sourceTree = "<group>"; };
+		C455756921B1884100DF4DB9 /* IEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IEvent.hpp; sourceTree = "<group>"; };
 		C46D6D5E21A6E99C00460E4E /* EventHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EventHandler.cpp; sourceTree = "<group>"; };
 		C46D6D5F21A6E99C00460E4E /* EventHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EventHandler.hpp; sourceTree = "<group>"; };
 		C485CF7521A2E45200E14AAA /* HelloEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelloEvent.cpp; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		C4CC5A73219B147800C54D2F /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		C4CC5A75219CCB2500C54D2F /* PlayerPosition.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerPosition.cpp; sourceTree = "<group>"; };
 		C4CC5A76219CCB2500C54D2F /* PlayerPosition.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayerPosition.hpp; sourceTree = "<group>"; };
+		C4E14AA621BEA6310049FB77 /* IPlayerEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IPlayerEvent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,8 @@
 				C4CC5A6A21998E7D00C54D2F /* PlayerEvent.hpp */,
 				C485CF7621A2E45200E14AAA /* HelloEvent.hpp */,
 				C46D6D5F21A6E99C00460E4E /* EventHandler.hpp */,
+				C455756921B1884100DF4DB9 /* IEvent.hpp */,
+				C4E14AA621BEA6310049FB77 /* IPlayerEvent.hpp */,
 			);
 			name = Events;
 			sourceTree = "<group>";

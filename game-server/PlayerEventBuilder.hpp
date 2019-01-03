@@ -12,27 +12,33 @@
 #include "ServerComponent.hpp"
 #include "PlayerEvent.hpp"
 #include "PlayerEventType.hpp"
-//#include "HelloEvent.hpp"
 
 namespace OpenWorldGameServer
 {
     
-    template<class T>
     class PlayerEventBuilder : public ServerComponent
     {
       
     private:
         
+        /*
+         * TODO: Right now a Pseudo Player Event is just an std::pair.
+         * This is bad because the PlayerEventType is accessed through .first
+         * and the values vector<string> is accessed through .second.
+         * Obviously this requires the maintainer to memorize the implementation of
+         * the Pseudo Player Event.
+         *
+         * Better would be to make a PseudoPlayerEvent class that has accessors like
+         * .getPlayerEventType and .getValues respectively.
+         */
+        std::pair<PlayerEventType, std::vector<std::string>> pseudoPlayerEvent;
+        
     public:
         
-        T build ()
-        {
-            
-            return *new T ();//values);
-            
-        };//std::vector<std::string> values);
+        PlayerEventBuilder (std::pair<PlayerEventType, std::vector<std::string>> pseudoPlayerEvent);
         
-//        static PlayerEventBuilder getInstance ();
+        template<class T>
+        PlayerEvent<T> build ();
         
     };
     
