@@ -102,7 +102,7 @@ OpenWorldGameServer::NetworkingServer::listen
     // somewhere in NetworkingServerLogic.cpp
     this->playerEventBuffer.push_back
     (
-        std::make_shared<PlayerEvent>
+        std::make_shared<IPlayerEvent>
         (
             playerEventBuilder.build ()
         )

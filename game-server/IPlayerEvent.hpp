@@ -9,6 +9,7 @@
 #ifndef IPlayerEvent_hpp
 #define IPlayerEvent_hpp
 
+#include <vector>
 #include <string>
 #include "PlayerEventType.hpp"
 
@@ -21,10 +22,11 @@ namespace OpenWorldGameServer {
         
     public:
         
-        IPlayerEvent () {};
+        IPlayerEvent (std::vector<std::string>) {};
         
-        virtual std::string     getValue (int index);
-        virtual PlayerEventType getType ();
+        virtual ~IPlayerEvent () = default;
+        virtual std::string     getValue (int index) {};
+        virtual PlayerEventType getType () {};
         
     };
     

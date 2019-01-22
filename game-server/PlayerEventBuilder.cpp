@@ -17,8 +17,7 @@ OpenWorldGameServer::PlayerEventBuilder::PlayerEventBuilder
     
 };
 
-template<class T>
-OpenWorldGameServer::PlayerEvent<T>
+OpenWorldGameServer::IPlayerEvent
 OpenWorldGameServer::PlayerEventBuilder::build
     ()
 {
@@ -27,13 +26,9 @@ OpenWorldGameServer::PlayerEventBuilder::build
     {
       
         case HELLO:
-            return new PlayerEvent<HelloEvent> (pseudoPlayerEvent.second);
-    
-//        case UPDATE_POSITION:
-//
-// 
-//        case DAMAGE_ENTITY:
-            
+            return *new PlayerEvent<HelloEvent> (
+                this->pseudoPlayerEvent.second
+            );
             
         default:
             std::cout << "Unrecogninzed type at PlayerEventBuilder::build :(" << std::endl;

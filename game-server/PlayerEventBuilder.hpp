@@ -12,6 +12,7 @@
 #include "ServerComponent.hpp"
 #include "PlayerEvent.hpp"
 #include "PlayerEventType.hpp"
+#include "IPlayerEvent.hpp"
 
 namespace OpenWorldGameServer
 {
@@ -37,8 +38,7 @@ namespace OpenWorldGameServer
         
         PlayerEventBuilder (std::pair<PlayerEventType, std::vector<std::string>> pseudoPlayerEvent);
         
-        template<class T>
-        PlayerEvent<T> build ();
+        IPlayerEvent build ();
         
     };
     
