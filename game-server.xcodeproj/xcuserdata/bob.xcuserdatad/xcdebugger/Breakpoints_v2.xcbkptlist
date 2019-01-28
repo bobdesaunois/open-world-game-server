@@ -9,91 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "game-server/HelloEvent.cpp"
-            timestampString = "564961374.463495"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "game-server/NetworkingServerLogic.cpp"
-            timestampString = "565007901.535215"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "OpenWorldGameServer::NetworkingServerLogic::handlePlayerEvents ()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OpenWorldGameServer::NetworkingServerLogic::handlePlayerEvents()"
-                  moduleName = "game-server"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bob/Documents/Programming/C++/game-server/game-server/NetworkingServerLogic.cpp"
-                  timestampString = "564961374.7115721"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "25">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OpenWorldGameServer::NetworkingServerLogic::handlePlayerEvents()"
-                  moduleName = "game-server"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bob/Documents/Programming/C++/game-server/game-server/NetworkingServerLogic.cpp"
-                  timestampString = "564961374.7150379"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "375">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "game-server/NetworkingServer.cpp"
-            timestampString = "565007901.5361381"
+            timestampString = "570372809.674439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "OpenWorldGameServer::NetworkingServer::listen ()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "game-server/NetworkingProtocol.cpp"
-            timestampString = "565273983.965385"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "OpenWorldGameServer::NetworkingProtocol:: parse (std::string data)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

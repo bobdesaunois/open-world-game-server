@@ -6,7 +6,7 @@
 //  Copyright © 2018 Bob Desaunois. All rights reserved.
 //
 
-#include "HelloEvent.hpp"
+//#include "HelloEvent.hpp"
 #include "PlayerEventBuilder.hpp"
 
 OpenWorldGameServer::PlayerEventBuilder::PlayerEventBuilder
@@ -17,23 +17,23 @@ OpenWorldGameServer::PlayerEventBuilder::PlayerEventBuilder
     
 };
 
-OpenWorldGameServer::IPlayerEvent
-OpenWorldGameServer::PlayerEventBuilder::build
-    ()
-{
-    
-    switch (this->pseudoPlayerEvent.first)
-    {
-      
-        case HELLO:
-            return *new PlayerEvent<HelloEvent> (
-                this->pseudoPlayerEvent.second
-            );
-            
-        default:
-            std::cout << "Unrecogninzed type at PlayerEventBuilder::build :(" << std::endl;
-            exit (1);
-            
-    };
-    
-};
+//OpenWorldGameServer::IPlayerEvent
+//OpenWorldGameServer::PlayerEventBuilder::build
+//    ()
+//{
+//
+//    switch (this->pseudoPlayerEvent.first)
+//    {
+//
+//        case HELLO:
+//            return *new PlayerEvent<HelloEvent> (
+//                this->pseudoPlayerEvent.second
+//            );
+//
+//        default:
+//            std::cout << "Unrecogninzed type at PlayerEventBuilder::build :(" << std::endl;
+//            exit (1);
+//
+//    };
+//
+//};

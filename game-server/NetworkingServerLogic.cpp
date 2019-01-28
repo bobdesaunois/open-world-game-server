@@ -25,10 +25,10 @@ OpenWorldGameServer::NetworkingServerLogic::handlePlayerEvents
     ()
 {
     
-    for (std::shared_ptr<IPlayerEvent> playerEventPtr : this->networkingServer->getPlayerEventBuffer())
+    for (auto playerEventPtr : this->networkingServer->getPlayerEventBuffer())
     {
         
-        playerEventPtr.get ();
+        std::cout << "This event is an " << playerEventPtr.get()->first;
         
     }
     

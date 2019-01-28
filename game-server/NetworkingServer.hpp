@@ -53,23 +53,21 @@ namespace OpenWorldGameServer
         NetworkingProtocol      networkingProtocol;
         NetworkingServerLogic*  networkingServerLogic;
         
-        std::vector<PlayerConnection>                  playerConnectionPool;
-        std::vector<std::shared_ptr<IPlayerEvent>>      playerEventBuffer;
+        std::vector<PlayerConnection> playerConnectionPool;
+        std::vector<std::shared_ptr<std::pair<PlayerEventType, std::vector<std::string>>>> playerEventBuffer;
        
     public:
         
         NetworkingServer ();
         
         std::vector<PlayerConnection>& getPlayerConnectionPool ();
-        std::vector<std::shared_ptr<IPlayerEvent>>& getPlayerEventBuffer ();
+        std::vector<std::shared_ptr<std::pair<OpenWorldGameServer::PlayerEventType, std::vector<std::string>>>> getPlayerEventBuffer ();
         
         void        listen ();
         void        handleNewConnection (IPlayerEvent helloEvent);
         void        handleNewEvent      (IPlayerEvent playerEvent);
         std::string generatePlayerID ();
     
-        
-        
     };
     
 }
